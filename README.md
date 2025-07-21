@@ -49,4 +49,4 @@ Use Django admin to manage movies and bookings.
 - [Booking Confirmation](screenshots/booking_confirmation.jpg)
 
 ### 💳 Payment Page
--[Payment Page](screenshots/payment_page.jpg)
+- [Payment Page](screenshots/payment_page.jpg)

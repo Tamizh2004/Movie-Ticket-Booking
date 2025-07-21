@@ -25,6 +25,7 @@ A simple movie ticket booking web application built with Django.
 5. Visit `http://127.0.0.1:8000/`
 
 ## Admin Access
+   python manage.py createsuperuser
 
 Use Django admin to manage movies and bookings.
 

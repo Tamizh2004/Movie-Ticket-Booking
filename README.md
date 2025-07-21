@@ -33,7 +33,7 @@ Use Django admin to manage movies and bookings.
 ## 📸 Screenshots
 
 ### 🔷 Home Page
--[Home Page](screenshots/homepage.png)
+-[Home Page]([screenshots/homepage.png](https://github.com/Tamizh2004/Movie-Ticket-Booking/tree/main/screenshots))
 
 ### 🔷 Booking Page
 -[Booking Page](screenshots/booking_page.png)

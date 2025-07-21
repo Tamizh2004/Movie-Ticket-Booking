@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: lightgray;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d9534f;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-message p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .error-message strong {
+            color: #d9534f;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Failed</h1>
+
+        <div class="error-message">
+            <p><strong>Movie:</strong> {{ booking.movie.title }}</p>
+            <p><strong>Customer Name:</strong> {{ booking.customer_name }}</p>
+            <p><strong>Seats:</strong> {{ booking.seats }}</p>
+            <p><strong>Amount Due:</strong> ₹{{ booking.amount_paid }}</p>
+        </div>
+
+        <p>Unfortunately, your payment could not be processed. Please try again or contact support.</p>
+    
+    </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .seat-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .seat {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            background-color: #e9ecef;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .seat:hover {
+            background-color: #d6e0e9;
+            transform: scale(1.1);
+        }
+
+        .seat.selected {
+            background-color: #28a745;
+            color: white;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+        }
+
+        .seat.occupied {
+            background-color: #dc3545;
+            color: white;
+            cursor: not-allowed;
+            box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+        }
+
+        form {
+            background-color: lightgray;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="date"] {
+            width: 80%;
+            margin: 15px 0;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 250px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .seat-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .seat {
+                width: 40px;
+                height: 40px;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Tickets for {{ movie.title }}</h1>
+    <h3 style="color: grey;">Per seat <span style="color: #45a049;"><b>₹200</b></span> </h3>
+    <div class="seat-grid" id="seat-grid">
+        {% for seat in seat_numbers %}
+            <div class="seat {% if seat|stringformat:"d" in occupied_seats %}occupied{% endif %}" data-seat="{{ seat }}">
+                {{ seat }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="post" action="{% url 'book_tickets' movie.id %}">
+        {% csrf_token %}
+        <input type="text" name="customer_name" id="customer_name" placeholder="Enter your name" required>
+        <input type="date" name="show_date" id="show_date" required value="{{ request.GET.show_date }}">
+        <input type="hidden" id="seats" name="seats" required>
+        <p>Total Price: ₹<span id="total-price">0</span></p>
+        <button type="submit">Book and Pay</button>
+    </form>
+
+    <script>
+        const seatGrid = document.getElementById('seat-grid');
+        const seatsInput = document.getElementById('seats');
+        const totalPrice = document.getElementById('total-price');
+        const seatPrice = 200;
+
+        document.querySelectorAll('.seat').forEach(seat => {
+            seat.addEventListener('click', () => {
+                if (seat.classList.contains('occupied')) {
+                    alert('This seat is already booked!');
+                    return;
+                }
+                seat.classList.toggle('selected');
+                const selectedSeats = Array.from(seatGrid.querySelectorAll('.seat.selected'))
+                    .map(seat => seat.getAttribute('data-seat'));
+                seatsInput.value = selectedSeats.join(',');
+                totalPrice.textContent = selectedSeats.length * seatPrice;
+            });
+        });
+    </script>
+</body>
+</html>

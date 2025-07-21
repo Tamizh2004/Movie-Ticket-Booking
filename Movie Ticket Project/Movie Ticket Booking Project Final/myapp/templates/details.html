@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .details {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .details p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .details p strong {
+            color: #4CAF50;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        button:focus {
+            outline: none;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input[type="hidden"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Booking Details</h1>
+    <div class="details">
+        <p><strong>Movie:</strong> {{ movie.title }}</p>
+        <p><strong>Customer Name:</strong> {{ customer_name }}</p>
+        <p><strong>Show Date:</strong> {{ show_date }}</p>
+        <p><strong>Selected Seats:</strong> {{ seats|join:", " }}</p>
+        <p><strong>Total Price:</strong> ₹{{ total_price }}</p>
+    </div>
+    <form method="post" action="{% url 'confirm_booking' movie.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="seats" value="{{ seats|join:',' }}">
+        <input type="hidden" name="customer_name" value="{{ customer_name }}">
+        <input type="hidden" name="show_date" value="{{ show_date }}">
+        <button type="submit">Confirm Booking</button>
+    </form>
+</body>
+</html>

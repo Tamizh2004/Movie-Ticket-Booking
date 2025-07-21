@@ -31,22 +31,69 @@ Use Django admin to manage movies and bookings.
 
 
 
-## 📸 Screenshots
+##  Screenshots
 
-### 🔷 Home Page
-- [Home Page](screenshots/homepage.jpg)
+###  Add Case
+- [Add Case](screenshots/AddCase.jpg)
 
-### 🔷 Booking Page
-- [Booking Page](screenshots/booking_page.jpg)
+###  Add Evidence
+- [Add Evidence](screenshots/AddEvidence.jpg)
 
-### 🔷 Admin Panel
-- [Admin Panel](screenshots/admin_panel.jpg)
+###  Add Officer
+- [Add Officer](screenshots/AddOfficer.jpg)
 
-### 🪑 Seat Selection
-- [Seat Selection](screenshots/seat_selection.jpg)
+###  Add Suspect
+- [Add Suspect](screenshots/AddSuspect.jpg)
 
-### ✅ Booking Confirmation
-- [Booking Confirmation](screenshots/booking_confirmation.jpg)
+###  Admin Login
+- [Admin Login](screenshots/AdminLogin.jpg)
 
-### 💳 Payment Page
-- [Payment Page](screenshots/payment_page.jpg)
+###  Admin Page
+- [Admin Page](screenshots/AdminPage.jpg)
+
+###  Case Officer
+- [Case Officer](screenshots/CaseOfficer.jpg)
+
+###  Community Outreach
+- [Admin Login](screenshots/CommunityOutreach.jpg)
+
+###  Dashboard
+- [Admin Login](screenshots/Dashboard.jpg)
+
+###  Database
+- [Admin Login](screenshots/Database.jpg)
+
+###  Index Page
+- [Admin Login](screenshots/IndexPage.jpg)
+
+###  News & Updates
+- [Admin Login](screenshots/News&Updates.jpg)
+
+###  Officer Details
+- [Admin Login](screenshots/OfficerDetails.jpg)
+
+###  Officer Details List
+- [Admin Login](screenshots/OfficerDetailsList.jpg)
+
+###  Officer Login
+- [Admin Login](screenshots/OfficerLogin.jpg)
+
+###  Officer PDF View
+- [Admin Login](screenshots/OfficerPDFView.jpg)
+
+###  Officer Profile
+- [Admin Login](screenshots/OfficerProfile.jpg)
+
+###  [PDF Report]
+- [Admin Login](screenshots/PDFReport.jpg)
+
+###  Predict Suspect
+- [Admin Login](screenshots/PredictSuspect.jpg)
+
+###  Report PDF
+- [Admin Login](screenshots/ReportPDF.jpg)
+
+###  Safety Tips
+- [Admin Login](screenshots/SafetyTips.jpg)
+
+

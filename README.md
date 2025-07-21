@@ -34,21 +34,21 @@ Use Django admin to manage movies and bookings.
 ##  Screenshots
 
 ###  Home Page
-- [Home Page](screenshots/homepage.png)
+- [Home Page](screenshots/homepage.jpg)
 
 ###  Booking Page
-- [Booking Page](screenshots/booking_page.png)
+- [Booking Page](screenshots/booking_page.jpg)
 
 ###  Admin Panel
-- [Admin Panel](screenshots/admin_panel.png)
+- [Admin Panel](screenshots/admin_panel.jpg)
 
 ###  Seat Selection
-- [Seat Selection](screenshots/seat_selection.png)
+- [Seat Selection](screenshots/seat_selection.jpg)
 
 ###  Booking Confirmation
-- [Booking Confirmation](screenshots/booking_confirmation.png)
+- [Booking Confirmation](screenshots/booking_confirmation.jpg)
 
 ###  Payment Page
--[Payment Page](screenshots/payment_page.png)
+-[Payment Page](screenshots/payment_page.jpg)
 
 
